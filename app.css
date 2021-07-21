@@ -126,3 +126,21 @@ table {
 }
 
 /* CSS reset ends here */
+
+section {
+  width: 100vw;
+  height: 100vh;
+  background-color: antiquewhite;
+}
+
+.cust-buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 767px) {
+  .cust-buttons {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
