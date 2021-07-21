@@ -21,6 +21,29 @@
         <button>Random</button><button>Rainbow</button>
         <button>Choose</button>
       </div>
+      <div class="board-area">
+        <div class="board"></div>
+        <div class="board-properties">
+          <div>
+            <label for="boardColor">Pick board color: </label>
+            <input type="color" id="boardColor" />
+          </div>
+
+          <div>
+            <label for="noOfTiles">No of tiles</label>
+            <input
+              type="range"
+              id="numTiles"
+              name="numTiles"
+              min="8"
+              max="100"
+              value="64"
+              step="2"
+            />
+          </div>
+        </div>
+      </div>
+      <button>Reset board</button>
     </section>
     <script src="app.js"></script>
   </body>
