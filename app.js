@@ -93,6 +93,29 @@ const randomColor = function () {
   )})`;
 };
 
+// find next rainbow color
+let currentRainbow = "red";
+const findNextRainbow = function () {
+  const rainbowColors = [
+    "violet",
+    "indigo",
+    "blue",
+    "green",
+    "yellow",
+    "orange",
+    "red",
+  ];
+
+  let index = rainbowColors.indexOf(currentRainbow);
+  if (index === rainbowColors.length - 1) {
+    currentRainbow = rainbowColors[0];
+  } else {
+    currentRainbow = rainbowColors[index + 1];
+  }
+
+  return currentRainbow;
+};
+
 // function to find the next color
 const findCurrentColor = function () {
   const currentActive = findCurrentActive();
@@ -106,6 +129,9 @@ const findCurrentColor = function () {
       break;
     case "random":
       return randomColor();
+      break;
+    case "rainbow":
+      return findNextRainbow();
       break;
   }
 };
