@@ -80,6 +80,19 @@ const findCurrentActive = function () {
   return document.querySelector(".active").id;
 };
 
+// make a random number
+const randomNumber = (range, offset) => {
+  offset = offset ?? 0;
+  return Math.round(Math.random() * range) + offset;
+};
+
+// make a random color
+const randomColor = function () {
+  return `rgb(${randomNumber(256)}, ${randomNumber(256)}, ${randomNumber(
+    256
+  )})`;
+};
+
 // function to find the next color
 const findCurrentColor = function () {
   const currentActive = findCurrentActive();
@@ -87,9 +100,17 @@ const findCurrentColor = function () {
   switch (currentActive) {
     case "manual":
       return pointerColorSelector.value;
+      break;
+    case "black":
+      return "hsl(0,0%,0%)";
+      break;
+    case "random":
+      return randomColor();
+      break;
   }
 };
 
+// On hovering over the board's child divs
 const changeBgColor = function () {
   let childNodes = document.querySelectorAll(".board > *");
   for (let child of childNodes) {
