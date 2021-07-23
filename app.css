@@ -181,7 +181,14 @@ section {
   width: 7rem;
 }
 
+.cust-buttons input{
+  width: 6.7rem;
+  margin: 0 0.5rem;
+}
+
 #resetButton{
+  width: 100px;
+  
   margin: 3rem 0;
 }
 
@@ -189,6 +196,8 @@ section {
   color: var(--red);
   box-shadow: 0 0 20px var(--red);
 }
+
+
 
  /* board styling  */
 
@@ -208,9 +217,7 @@ section {
   margin: auto;
 }
 
-#resetButton{
-  width: 100px;
-}
+
 
 @media (min-width: 767px) {
   section{
