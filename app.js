@@ -66,14 +66,19 @@ document.addEventListener("DOMContentLoaded", function () {
 boardColorPicker = document.querySelector("#boardColor");
 
 const setBoardColor = function (color) {
+  color = color ?? boardColorPicker.value;
   let childNodes = document.querySelectorAll(".board > *");
   for (let child of childNodes) {
     child.style.backgroundColor = color;
   }
 };
 
+// file tile picker or color changes, set board color
+tilePicker.addEventListener("change", function () {
+  setBoardColor();
+});
 boardColorPicker.addEventListener("change", function () {
-  setBoardColor(boardColorPicker.value);
+  setBoardColor();
 });
 
 // find the selected customization button
@@ -219,3 +224,10 @@ const changeBgColor = function () {
 
 document.addEventListener("DOMContentLoaded", changeBgColor);
 document.addEventListener("change", changeBgColor);
+
+// reset the board function
+
+const resetButton = document.querySelector("#resetButton");
+resetButton.addEventListener("click", function () {
+  setBoardColor();
+});
