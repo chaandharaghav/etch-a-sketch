@@ -212,12 +212,12 @@ section {
 }
 
 /* delete starts here  */
-.board > div {
+/* .board > div {
   background-color: rgb(112, 99, 99);
 }
 .board div:hover {
   background-color: rgb(61, 58, 58);
-}
+} */
 
 @media (min-width: 767px) {
   section {

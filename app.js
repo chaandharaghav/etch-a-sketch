@@ -56,23 +56,24 @@ const deleteDivs = function () {
 tilePicker.addEventListener("change", deleteDivs);
 tilePicker.addEventListener("change", createDivs);
 
-// function to set board color
+// set initial color for board color
+document.addEventListener("DOMContentLoaded", function () {
+  boardColorPicker.value = "#706363";
+  setBoardColor(boardColorPicker.value);
+});
 
-// implemented by changing written css,
-// changing styleSheets will impact this as well
-const findDivBgCss = function () {
-  cssRules = document.styleSheets[0].cssRules;
-  for (let cssRule of cssRules) {
-    if (cssRule.selectorText === ".board > div") {
-      return cssRule.style;
-    }
+// function to set board color
+boardColorPicker = document.querySelector("#boardColor");
+
+const setBoardColor = function (color) {
+  let childNodes = document.querySelectorAll(".board > *");
+  for (let child of childNodes) {
+    child.style.backgroundColor = color;
   }
 };
 
-boardColorPicker = document.querySelector("#boardColor");
 boardColorPicker.addEventListener("change", function () {
-  const divBgCss = findDivBgCss();
-  divBgCss.backgroundColor = boardColorPicker.value;
+  setBoardColor(boardColorPicker.value);
 });
 
 // find the selected customization button
@@ -211,9 +212,7 @@ const changeBgColor = function () {
   let childNodes = document.querySelectorAll(".board > *");
   for (let child of childNodes) {
     child.addEventListener("mouseover", function () {
-      let color = findCurrentColor(this);
-      this.style.backgroundColor = color;
-      console.log(color);
+      this.style.backgroundColor = findCurrentColor(this);
     });
   }
 };
